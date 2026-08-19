@@ -75,5 +75,20 @@ frame-ancestors`, o navegador bloqueia e a janela fica em branco. Por isso o bot
 
 ## Deploy
 
-Saída estática em `dist/`. No Cloudflare Pages: build command `npm run build`,
-output directory `dist`.
+Saída estática em `dist/`.
+
+**Firebase Hosting** (padrão):
+
+```bash
+npm run deploy
+```
+
+Roda o build e publica. O `firebase.json` já faz o rewrite de `**` para
+`/index.html` — é o que faz `/projetos/<slug>` funcionar quando alguém abre a
+URL direto. Assets com hash no nome vão com cache de 1 ano; o `index.html` vai
+com `no-cache`, senão o navegador serviria a versão velha depois de um deploy.
+
+Se as credenciais expirarem, `firebase login --reauth`.
+
+**Cloudflare Pages** (alternativa): build command `npm run build`, output
+directory `dist`. O `public/_redirects` cobre o mesmo fallback de SPA.
