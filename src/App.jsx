@@ -51,7 +51,7 @@ export default function App() {
             <Route path="*" element={<NotFound t={t} />} />
           </Routes>
         </main>
-        <Footer t={t} />
+        <Footer />
       </div>
     </>
   );

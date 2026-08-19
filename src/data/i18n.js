@@ -30,7 +30,6 @@ export const i18n = {
     notFoundTitle: 'Projeto não encontrado',
     notFoundSub: 'O endereço que você abriu não corresponde a nenhum projeto.',
     notFoundCta: 'Voltar para a home',
-    footerNote: 'feito com React + Firebase',
     whoami:
       'Richard L. Nunes — desenvolvedor full-stack.\nConstruo interfaces rápidas, escaláveis e bonitas.\nDisponível para novos projetos.',
   },
@@ -65,7 +64,6 @@ export const i18n = {
     notFoundTitle: 'Project not found',
     notFoundSub: 'The address you opened does not match any project.',
     notFoundCta: 'Back to home',
-    footerNote: 'built with React + Firebase',
     whoami:
       'Richard L. Nunes — full-stack developer.\nI build fast, scalable and beautiful interfaces.\nAvailable for new projects.',
   },

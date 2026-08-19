@@ -223,9 +223,7 @@ export const projects = [
 ];
 
 export const contactLinks = [
-  { label: 'contato@rlnunes.com.br', href: 'mailto:contato@rlnunes.com.br', primary: true },
-  { label: 'WhatsApp', href: 'https://wa.me/55', external: true },
-  { label: 'GitHub', href: 'https://github.com', external: true },
+  { label: 'rlnunes96@gmail.com', href: 'mailto:rlnunes96@gmail.com', primary: true },
 ];
 
 export const findProject = (slug) => projects.find((project) => project.slug === slug);
