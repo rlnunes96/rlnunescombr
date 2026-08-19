@@ -18,6 +18,7 @@ index.html               shell + fontes Google
 src/
   App.jsx                estado de idioma, composição das seções
   index.css              todos os estilos (tokens em :root)
+  assets/                logos dos projetos
   components/            Nav, Hero, Skills, Projects, Contact, Footer, Backdrop, CustomCursor
   data/i18n.js           textos PT/EN
   data/content.js        skills, projetos e links de contato
@@ -37,6 +38,10 @@ bundle — mantida para comparar o resultado com o desenho original.
 
 Projetos com `link: '#'` são renderizados sem `target="_blank"`; ao preencher uma
 URL real o card passa a abrir em nova aba automaticamente.
+
+Na capa do card, o projeto pode usar `logo` (importe o arquivo de `src/assets/` e
+passe também um `logoAlt`) ou `icon` com um emoji — quando há `logo`, ele tem
+prioridade sobre o `icon`.
 
 ## Deploy
 

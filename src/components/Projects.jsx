@@ -46,7 +46,16 @@ export default function Projects({ t }) {
               {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               <div className="project-cover" style={{ background: project.gradient }}>
-                <span className="project-cover-icon">{project.icon}</span>
+                {project.logo ? (
+                  <img
+                    className="project-cover-logo"
+                    src={project.logo}
+                    alt={project.logoAlt ?? project.name}
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="project-cover-icon">{project.icon}</span>
+                )}
                 <div className="project-cover-grid" aria-hidden="true" />
               </div>
               <div className="project-body">
@@ -55,13 +64,6 @@ export default function Projects({ t }) {
                   <span className="project-link">↗ {t.liveLink}</span>
                 </div>
                 <p className="project-desc">{project.desc}</p>
-                <div className="chip-row">
-                  {project.stack.map((tech) => (
-                    <span key={tech} className="chip chip--accent">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </div>
             </a>
           );

@@ -1,3 +1,5 @@
+import spfcStatsLogo from '../assets/spfc-stats.png';
+
 export const skillGroups = [
   { icon: '⚛️', title: 'Frontend', items: ['React', 'JavaScript', 'HTML/CSS'] },
   { icon: '🔥', title: 'Backend & Cloud', items: ['Firebase', 'Cloudflare', 'PHP'] },
@@ -5,6 +7,7 @@ export const skillGroups = [
   { icon: '🎨', title: 'Design', items: ['Photoshop', 'Illustrator', 'UI/UX'] },
 ];
 
+// Cards render `logo` when present and fall back to `icon` otherwise.
 export const projects = [
   {
     name: 'Loja Virtual',
@@ -12,15 +15,14 @@ export const projects = [
     link: '#',
     gradient: 'linear-gradient(135deg,#0f2a24,#0a1119)',
     desc: 'E-commerce completo com checkout otimizado e integração de pagamentos.',
-    stack: ['React', 'Firebase', 'PHP'],
   },
   {
-    name: 'Landing Page de Conversão',
-    icon: '🚀',
-    link: '#',
-    gradient: 'linear-gradient(135deg,#0f1f2a,#0a1119)',
-    desc: 'Página de captura com foco em tráfego pago e alta taxa de conversão.',
-    stack: ['React', 'Cloudflare'],
+    name: 'SPFC Stats',
+    logo: spfcStatsLogo,
+    logoAlt: 'SPFC Stats',
+    link: 'https://spfc.rlnunes.com.br',
+    gradient: 'linear-gradient(135deg,#2a0f14,#0a1119)',
+    desc: 'Estatísticas do São Paulo FC: elenco, comparação de jogadores, desempenho por competição, títulos e acompanhamento ao vivo.',
   },
   {
     name: 'Painel Administrativo',
@@ -28,7 +30,6 @@ export const projects = [
     link: '#',
     gradient: 'linear-gradient(135deg,#241030,#0a1119)',
     desc: 'Dashboard interno para gestão de dados em tempo real.',
-    stack: ['React', 'Firebase'],
   },
 ];
 

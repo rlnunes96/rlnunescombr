@@ -323,15 +323,6 @@ button:focus-visible {
   padding: 5px 10px;
 }
 
-.chip--accent {
-  font-size: 11.5px;
-  color: var(--accent-soft);
-  background: #00ff9c14;
-  border-color: transparent;
-  border-radius: 5px;
-  padding: 4px 9px;
-}
-
 /* ----------------------------------------------------------------- hero */
 
 .hero {
@@ -534,6 +525,15 @@ button:focus-visible {
   opacity: 0.9;
 }
 
+.project-cover-logo {
+  max-width: 74%;
+  max-height: 98px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px #0009);
+}
+
 .project-cover-grid {
   position: absolute;
   inset: 0;
@@ -572,7 +572,7 @@ button:focus-visible {
   font-size: 14px;
   color: var(--muted);
   line-height: 1.6;
-  margin: 0 0 18px;
+  margin: 0;
 }
 
 /* -------------------------------------------------------------- contact */

@@ -4,11 +4,11 @@ export const i18n = {
     navProjects: 'PROJETOS',
     navContact: 'CONTATO',
     langLabel: 'EN',
-    heroTag: 'DESENVOLVEDOR FULL-STACK · FREELANCER',
+    heroTag: 'DESENVOLVEDOR FULL-STACK',
     heroTitle1: 'Eu construo produtos',
     heroTitle2: 'que funcionam de verdade.',
     heroSub:
-      'React, Firebase e Cloudflare na base — do código ao deploy, cuido de cada detalhe técnico e visual.',
+      'do código ao deploy, cuido de cada detalhe técnico e visual.',
     ctaProjects: 'Ver projetos',
     ctaContact: 'Falar comigo',
     skillsTag: 'stack',
@@ -21,18 +21,18 @@ export const i18n = {
     liveLink: 'ver site',
     footerNote: 'feito com React + Firebase',
     whoami:
-      'Richard L. Nunes — desenvolvedor full-stack.\nConstruo interfaces rápidas, escaláveis e bonitas.\nDisponível para novos projetos freelance.',
+      'Richard L. Nunes — desenvolvedor full-stack.\nConstruo interfaces rápidas, escaláveis e bonitas.\nDisponível para novos projetos.',
   },
   en: {
     navSkills: 'SKILLS',
     navProjects: 'PROJECTS',
     navContact: 'CONTACT',
     langLabel: 'PT',
-    heroTag: 'FULL-STACK DEVELOPER · FREELANCER',
+    heroTag: 'FULL-STACK DEVELOPER',
     heroTitle1: 'I build products',
     heroTitle2: 'that actually work.',
     heroSub:
-      'React, Firebase and Cloudflare at the core — from code to deploy, I own every technical and visual detail.',
+      'from code to deploy, I own every technical and visual detail.',
     ctaProjects: 'View projects',
     ctaContact: 'Get in touch',
     skillsTag: 'stack',
@@ -45,7 +45,7 @@ export const i18n = {
     liveLink: 'view site',
     footerNote: 'built with React + Firebase',
     whoami:
-      'Richard L. Nunes — full-stack developer.\nI build fast, scalable and beautiful interfaces.\nAvailable for new freelance projects.',
+      'Richard L. Nunes — full-stack developer.\nI build fast, scalable and beautiful interfaces.\nAvailable for new projects.',
   },
 };
 
