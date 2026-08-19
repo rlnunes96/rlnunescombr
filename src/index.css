@@ -193,7 +193,8 @@ button:focus-visible {
   border-bottom: 1px solid var(--border);
 }
 
-.nav-brand {
+.nav-brand,
+.nav-brand:hover {
   font-family: var(--mono);
   font-weight: 700;
   font-size: 18px;
@@ -380,6 +381,11 @@ button:focus-visible {
   text-align: left;
 }
 
+/* Declared after `.terminal` so it wins the equal-specificity width battle. */
+.terminal--wide {
+  width: 100%;
+}
+
 .terminal-bar {
   display: flex;
   align-items: center;
@@ -416,12 +422,32 @@ button:focus-visible {
   margin-left: 8px;
 }
 
+.terminal-action {
+  margin-left: auto;
+}
+
+.terminal-open {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.terminal-open:hover {
+  color: var(--accent);
+}
+
 .terminal-body {
   padding: 22px 20px;
   font-family: var(--mono);
   font-size: 14.5px;
   line-height: 1.9;
   min-height: 150px;
+}
+
+.terminal-body--flush {
+  padding: 0;
+  min-height: 0;
 }
 
 .terminal-prompt {
@@ -575,6 +601,156 @@ button:focus-visible {
   margin: 0;
 }
 
+/* --------------------------------------------------- project detail page */
+
+.project-page {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 130px 24px 120px;
+}
+
+.project-back {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 34px;
+}
+
+.project-back:hover {
+  color: var(--accent);
+}
+
+.project-hero {
+  margin-bottom: 56px;
+}
+
+.project-hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 6px 18px #0009);
+}
+
+.project-hero-title {
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--heading);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 0 0 22px;
+}
+
+.project-hero-tagline {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0;
+}
+
+.project-frame {
+  display: block;
+  width: 100%;
+  height: min(72vh, 760px);
+  border: 0;
+  background: var(--bg);
+}
+
+.project-preview-note {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--dim);
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+
+.project-info {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 56px;
+  margin-top: 96px;
+}
+
+.project-info + .project-block {
+  margin-top: 96px;
+}
+
+.project-block-title {
+  font-size: 22px;
+  color: var(--heading);
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin: 0 0 22px;
+}
+
+.project-paragraph {
+  font-size: 15.5px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+
+.project-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.stack-group + .stack-group {
+  margin-top: 22px;
+}
+
+.stack-group-name {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 22px;
+  transition: border-color 0.25s;
+}
+
+.feature-card:hover {
+  border-color: #00ff9c55;
+}
+
+.feature-icon {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.feature-title {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--heading);
+  font-size: 14.5px;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+}
+
+.feature-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* -------------------------------------------------------------- contact */
 
 .section--contact {
@@ -646,6 +822,24 @@ button:focus-visible {
 
   .section-title {
     margin-bottom: 36px;
+  }
+
+  .project-page {
+    padding: 110px 20px 90px;
+  }
+
+  .project-info {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    margin-top: 64px;
+  }
+
+  .project-info + .project-block {
+    margin-top: 64px;
+  }
+
+  .project-frame {
+    height: min(64vh, 560px);
   }
 }
 

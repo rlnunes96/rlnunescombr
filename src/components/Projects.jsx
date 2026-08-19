@@ -1,10 +1,38 @@
 import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useReveal } from '../hooks/useReveal.js';
 import { projects } from '../data/content.js';
 import { hasFinePointer, prefersReducedMotion } from '../lib/media.js';
 
 const TILT_DEGREES = 10;
 const RESTING_TRANSFORM = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0)';
+
+function ProjectCardBody({ project, t }) {
+  return (
+    <>
+      <div className="project-cover" style={{ background: project.gradient }}>
+        {project.logo ? (
+          <img
+            className="project-cover-logo"
+            src={project.logo}
+            alt={project.logoAlt ?? project.name}
+            loading="lazy"
+          />
+        ) : (
+          <span className="project-cover-icon">{project.icon}</span>
+        )}
+        <div className="project-cover-grid" aria-hidden="true" />
+      </div>
+      <div className="project-body">
+        <div className="project-head">
+          <span className="project-name">{project.name}</span>
+          <span className="project-link">↗ {t.liveLink}</span>
+        </div>
+        <p className="project-desc">{project.desc}</p>
+      </div>
+    </>
+  );
+}
 
 export default function Projects({ t }) {
   const [ref, revealClass] = useReveal();
@@ -35,36 +63,32 @@ export default function Projects({ t }) {
       <h2 className="section-title">{t.projectsTitle}</h2>
       <div className="project-grid">
         {projects.map((project) => {
-          const isExternal = project.link !== '#';
+          const shared = {
+            className: 'project-card',
+            onMouseMove: handleMove,
+            onMouseLeave: handleLeave,
+          };
+          const body = <ProjectCardBody project={project} t={t} />;
+
+          // Projects with their own page stay in the app; the rest fall back to
+          // the published URL, and placeholders (`#`) go nowhere at all.
+          if (project.slug) {
+            return (
+              <Link key={project.name} to={`/projetos/${project.slug}`} {...shared}>
+                {body}
+              </Link>
+            );
+          }
+
+          const isExternal = project.link && project.link !== '#';
           return (
             <a
               key={project.name}
               href={project.link}
-              className="project-card"
-              onMouseMove={handleMove}
-              onMouseLeave={handleLeave}
+              {...shared}
               {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
-              <div className="project-cover" style={{ background: project.gradient }}>
-                {project.logo ? (
-                  <img
-                    className="project-cover-logo"
-                    src={project.logo}
-                    alt={project.logoAlt ?? project.name}
-                    loading="lazy"
-                  />
-                ) : (
-                  <span className="project-cover-icon">{project.icon}</span>
-                )}
-                <div className="project-cover-grid" aria-hidden="true" />
-              </div>
-              <div className="project-body">
-                <div className="project-head">
-                  <span className="project-name">{project.name}</span>
-                  <span className="project-link">↗ {t.liveLink}</span>
-                </div>
-                <p className="project-desc">{project.desc}</p>
-              </div>
+              {body}
             </a>
           );
         })}
