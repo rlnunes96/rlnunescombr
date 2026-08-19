@@ -676,6 +676,10 @@ button:focus-visible {
   margin-top: 96px;
 }
 
+.project-info--single {
+  grid-template-columns: minmax(0, 760px);
+}
+
 .project-info + .project-block {
   margin-top: 96px;
 }

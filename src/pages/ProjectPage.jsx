@@ -32,6 +32,8 @@ export default function ProjectPage({ t }) {
 
   if (!project || !detail) return <NotFound t={t} />;
 
+  const hasStack = Boolean(detail.stack?.length);
+
   return (
     <div className="project-page">
       <Link to="/#projects" className="project-back">
@@ -76,7 +78,9 @@ export default function ProjectPage({ t }) {
       </TerminalWindow>
       <p className="project-preview-note">{t.projectPreviewNote}</p>
 
-      <div className="project-info">
+      {/* `stack` is optional — a project whose source I don't have just skips it,
+          and the column layout collapses instead of leaving a gap. */}
+      <div className={`project-info${hasStack ? '' : ' project-info--single'}`}>
         <section className="project-block">
           <h2 className="project-block-title">{t.projectAbout}</h2>
           {detail.about.map((paragraph) => (
@@ -86,35 +90,39 @@ export default function ProjectPage({ t }) {
           ))}
         </section>
 
-        <section className="project-block">
-          <h2 className="project-block-title">{t.projectStack}</h2>
-          {detail.stack.map((group) => (
-            <div key={group.group} className="stack-group">
-              <div className="stack-group-name">{group.group}</div>
-              <div className="chip-row">
-                {group.items.map((item) => (
-                  <span key={item} className="chip">
-                    {item}
-                  </span>
-                ))}
+        {hasStack ? (
+          <section className="project-block">
+            <h2 className="project-block-title">{t.projectStack}</h2>
+            {detail.stack.map((group) => (
+              <div key={group.group} className="stack-group">
+                <div className="stack-group-name">{group.group}</div>
+                <div className="chip-row">
+                  {group.items.map((item) => (
+                    <span key={item} className="chip">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </section>
+            ))}
+          </section>
+        ) : null}
       </div>
 
-      <section className="project-block">
-        <h2 className="project-block-title">{t.projectFeatures}</h2>
-        <div className="feature-grid">
-          {detail.features.map((feature) => (
-            <div key={feature.title} className="feature-card">
-              <div className="feature-icon">{feature.icon}</div>
-              <div className="feature-title">{feature.title}</div>
-              <p className="feature-desc">{feature.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {detail.features?.length ? (
+        <section className="project-block">
+          <h2 className="project-block-title">{t.projectFeatures}</h2>
+          <div className="feature-grid">
+            {detail.features.map((feature) => (
+              <div key={feature.title} className="feature-card">
+                <div className="feature-icon">{feature.icon}</div>
+                <div className="feature-title">{feature.title}</div>
+                <p className="feature-desc">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

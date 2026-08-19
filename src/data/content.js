@@ -24,16 +24,59 @@ export const skillGroups = [
  *   terminalTitle  texto da barra da janela de terminal que envolve o preview
  *   tagline        frase de abertura da página
  *   about          parágrafos de texto corrido
- *   stack          grupos de tecnologias { group, items[] }
- *   features       lista de funcionalidades { icon, title, desc }
+ *   stack          grupos de tecnologias { group, items[] } — opcional; sem ele
+ *                  o bloco some e o "Sobre" ocupa a largura toda
+ *   features       lista de funcionalidades { icon, title, desc } — opcional
  */
 export const projects = [
   {
     name: 'Loja Virtual',
+    slug: 'loja-virtual',
     icon: '🛒',
-    link: '#',
+    link: 'https://vitrine.rlnunes.com.br',
     gradient: 'linear-gradient(135deg,#0f2a24,#0a1119)',
-    desc: 'E-commerce completo com checkout otimizado e integração de pagamentos.',
+    desc: 'Vitrine de moda com catálogo por categoria, página de produto e sacola que fecha o pedido no WhatsApp.',
+    detail: {
+      terminalTitle: 'vitrine.rlnunes.com.br',
+      tagline:
+        'Vitrine online de uma marca de moda, com catálogo por categoria, página de produto e uma sacola que fecha o pedido direto no WhatsApp.',
+      about: [
+        'O catálogo é organizado por categoria — vestidos, alfaiataria, tricot e acessórios — com busca e filtro. Cada peça tem página própria, com seleção de tamanho, quantidade e o estado de esgotado quando o item acabou.',
+        'O checkout não passa por gateway de pagamento: a sacola guarda o pedido e o fechamento acontece no WhatsApp, onde frete e condições são combinados direto com a loja. Para uma operação desse porte isso tira atrito — a cliente não precisa criar cadastro nem digitar dados de cartão para comprar.',
+      ],
+      features: [
+        {
+          icon: '🧭',
+          title: 'Catálogo por categoria',
+          desc: 'Vestidos, alfaiataria, tricot e acessórios, com busca e filtro.',
+        },
+        {
+          icon: '👗',
+          title: 'Página de produto',
+          desc: 'Seleção de tamanho e quantidade, com aviso de peça esgotada.',
+        },
+        {
+          icon: '🛍️',
+          title: 'Sacola',
+          desc: 'Resumo do pedido com subtotal e os itens guardados entre visitas.',
+        },
+        {
+          icon: '💬',
+          title: 'Fechamento no WhatsApp',
+          desc: 'Frete e condições combinados direto com a loja, sem cadastro.',
+        },
+        {
+          icon: '✨',
+          title: 'Identidade de vitrine de luxo',
+          desc: 'Tipografia serifada, paleta neutra e layout editorial.',
+        },
+        {
+          icon: '📱',
+          title: 'Layout responsivo',
+          desc: 'Mesma navegação no desktop e no celular, onde a maior parte compra.',
+        },
+      ],
+    },
   },
   {
     name: 'SPFC Stats',
@@ -105,11 +148,77 @@ export const projects = [
     },
   },
   {
-    name: 'Painel Administrativo',
-    icon: '📊',
-    link: '#',
-    gradient: 'linear-gradient(135deg,#241030,#0a1119)',
-    desc: 'Dashboard interno para gestão de dados em tempo real.',
+    name: 'Gestão de Academia',
+    slug: 'gestao-academia',
+    icon: '🥋',
+    link: 'https://academia.rlnunes.com.br',
+    gradient: 'linear-gradient(135deg,#2a1f0f,#0a1119)',
+    desc: 'Sistema para escola de artes marciais: matrículas, turmas, frequência, faturamento e área do aluno.',
+    detail: {
+      terminalTitle: 'academia.rlnunes.com.br',
+      tagline:
+        'Sistema de gestão do IDAO — Instituto das Artes Orientais. Junta o site público da escola e dois painéis internos: o do aluno e o administrativo.',
+      about: [
+        'A parte pública apresenta a escola, os cursos, o calendário e os eventos, com página de contato e cadastro. A partir do login, cada pessoa cai no painel do seu papel — aluno ou administrador — e as rotas de cada área ficam protegidas por esse papel.',
+        'O aluno acompanha frequência, faturamento e o Kung Fu em Casa: os cursos em vídeo organizados em etapas, cada uma com suas aulas e provas. O administrador cuida de alunos, turmas, professores e presença, e publica o conteúdo do próprio site — banners, arquivos e eventos — sem depender de deploy.',
+      ],
+      stack: [
+        {
+          group: 'Front-end',
+          items: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router', 'React Query'],
+        },
+        {
+          group: 'Formulários & dados',
+          items: ['React Hook Form', 'Zod', 'date-fns'],
+        },
+        {
+          group: 'Back-end',
+          items: ['Firebase Auth', 'Firestore', 'Cloud Storage', 'Firebase Hosting'],
+        },
+      ],
+      features: [
+        {
+          icon: '🥋',
+          title: 'Área do aluno',
+          desc: 'Painel próprio com turmas, agenda e o andamento dos cursos.',
+        },
+        {
+          icon: '🎥',
+          title: 'Kung Fu em Casa',
+          desc: 'Cursos em vídeo divididos em etapas, com aulas e provas por etapa.',
+        },
+        {
+          icon: '📋',
+          title: 'Frequência',
+          desc: 'Presença lançada por turma e consultada pelo aluno no painel.',
+        },
+        {
+          icon: '💳',
+          title: 'Faturamento',
+          desc: 'Mensalidades e situação financeira de cada matrícula.',
+        },
+        {
+          icon: '🗓️',
+          title: 'Calendário e eventos',
+          desc: 'Agenda da escola, com página própria para cada evento.',
+        },
+        {
+          icon: '👥',
+          title: 'Alunos, turmas e professores',
+          desc: 'Cadastro e edição completos no painel administrativo.',
+        },
+        {
+          icon: '🖼️',
+          title: 'Conteúdo pelo admin',
+          desc: 'Banners e arquivos do site publicados sem precisar de deploy.',
+        },
+        {
+          icon: '🔐',
+          title: 'Acesso por papel',
+          desc: 'Rotas de aluno e de administrador protegidas separadamente.',
+        },
+      ],
+    },
   },
 ];
 
