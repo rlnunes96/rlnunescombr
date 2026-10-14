@@ -1,4 +1,5 @@
 import spfcStatsLogo from '../assets/spfc-stats.png';
+import dravenCorpLogo from '../assets/dravencorp.png';
 
 export const skillGroups = [
   { icon: '⚛️', title: 'Frontend', items: ['React', 'JavaScript', 'HTML/CSS'] },
@@ -216,6 +217,80 @@ export const projects = [
           icon: '🔐',
           title: 'Acesso por papel',
           desc: 'Rotas de aluno e de administrador protegidas separadamente.',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Draven Corp',
+    slug: 'draven-corp',
+    logo: dravenCorpLogo,
+    logoAlt: 'Draven Corp',
+    link: 'https://games.rlnunes.com.br',
+    gradient: 'linear-gradient(135deg,#1a1030,#0a1119)',
+    desc: 'Minigames de treino para League of Legends e Hunt: Showdown, com launcher próprio, login por Discord, amigos e rankings.',
+    detail: {
+      terminalTitle: 'games.rlnunes.com.br',
+      tagline:
+        'Plataforma de minigames de treino para League of Legends e Hunt: Showdown, com launcher próprio, login por Discord, amigos e ranking por etapa.',
+      about: [
+        'O site e a API são um Worker da Cloudflare rodando Hono sobre um banco D1; o jogo é um executável feito em Godot que conversa com essa mesma API. O login do jogo usa device code: o launcher mostra um código curto, você autoriza no navegador pelo Discord e o executável recebe o token sozinho, sem digitar senha na tela do jogo.',
+        'Cada jogo é um pacote baixado sob demanda, com o SHA-256 conferido antes de instalar, e o launcher se atualiza sozinho comparando a versão local com o manifesto da API. O áudio do Sound Locator foi escrito do zero — sons sintetizados por código e espacialização binaural própria, com diferença de tempo entre os ouvidos, sombra da cabeça, abafamento traseiro e distância — porque o áudio 3D do Godot é estéreo e não deixa distinguir o que vem da frente do que vem de trás.',
+      ],
+      stack: [
+        {
+          group: 'Site & API',
+          items: ['Cloudflare Workers', 'Hono', 'D1', 'R2', 'TypeScript'],
+        },
+        {
+          group: 'Jogo',
+          items: ['Godot 4.7', 'GDScript', 'Áudio binaural próprio'],
+        },
+        {
+          group: 'Infra & testes',
+          items: ['Discord OAuth', 'Wrangler', 'Vitest'],
+        },
+      ],
+      features: [
+        {
+          icon: '🎯',
+          title: 'Last Hit Trainer',
+          desc: 'Farm de minions em quatro etapas, da wave simples ao last hit sob pressão.',
+        },
+        {
+          icon: '💨',
+          title: 'Dodge Arena',
+          desc: 'Desvio de skillshots em linhas, áreas com atraso e tudo ao mesmo tempo.',
+        },
+        {
+          icon: '🎧',
+          title: 'Sound Locator',
+          desc: 'Direção, ângulo e distância do som, com espacialização binaural feita à mão.',
+        },
+        {
+          icon: '🔫',
+          title: 'Flick & Track',
+          desc: 'Mira com a sua sensibilidade real do Hunt (DPI, cm/360 e FOV) e o arsenal do jogo.',
+        },
+        {
+          icon: '🐉',
+          title: 'Draven Monsters',
+          desc: 'Escolha o inicial, treine contra treinadores por nível e batalhe por turnos ao vivo.',
+        },
+        {
+          icon: '🃏',
+          title: 'Draven Duels',
+          desc: 'Duelos de cartas com decks prontos da saga e as regras de cada época.',
+        },
+        {
+          icon: '🏆',
+          title: 'Rankings e amigos',
+          desc: 'Ranking global ou só entre amigos, por dia, semana ou geral, com desafio diário.',
+        },
+        {
+          icon: '📦',
+          title: 'Launcher com auto-update',
+          desc: 'Pacotes baixados sob demanda, SHA-256 conferido e troca do executável em uso.',
         },
       ],
     },
